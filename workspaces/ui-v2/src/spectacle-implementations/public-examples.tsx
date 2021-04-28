@@ -21,6 +21,7 @@ import {
   AppConfigurationStore,
   OpticAppConfig,
 } from '../optic-components/hooks/config/AppConfiguration';
+import { AnalyticsStore } from '../analytics/hook';
 
 const appConfig: OpticAppConfig = {
   featureFlags: {},
@@ -78,23 +79,25 @@ export default function PublicExamples() {
 
   return (
     <AppConfigurationStore config={appConfig}>
-      <SpectacleStore spectacle={data}>
-        <CapturesServiceStore
-          capturesService={data.opticContext.capturesService}
-        >
-          <InMemoryInteractionLoaderStore samples={data.samples}>
-            <BaseUrlProvider value={{ url: match.url }}>
-              <Switch>
-                <>
-                  <DocumentationPages />
-                  <DiffReviewEnvironments />
-                  <ChangelogPages />
-                </>
-              </Switch>
-            </BaseUrlProvider>
-          </InMemoryInteractionLoaderStore>
-        </CapturesServiceStore>
-      </SpectacleStore>
+      <AnalyticsStore>
+        <SpectacleStore spectacle={data}>
+          <CapturesServiceStore
+            capturesService={data.opticContext.capturesService}
+          >
+            <InMemoryInteractionLoaderStore samples={data.samples}>
+              <BaseUrlProvider value={{ url: match.url }}>
+                <Switch>
+                  <>
+                    <DocumentationPages />
+                    <DiffReviewEnvironments />
+                    <ChangelogPages />
+                  </>
+                </Switch>
+              </BaseUrlProvider>
+            </InMemoryInteractionLoaderStore>
+          </CapturesServiceStore>
+        </SpectacleStore>
+      </AnalyticsStore>
     </AppConfigurationStore>
   );
 }
