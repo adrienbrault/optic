@@ -44,11 +44,12 @@ export function builderInnerShapeFromChoices(
       return foundShapeId[0];
     } else {
       // make new shape
-      //???? re opticRustEngine and name of function
-      const { commands, rootShapeId } = JSON.parse(
-        opticRustEngine.affordances_to_commands(
+      const { rootShapeId, commands } = JsonHelper.toJs(
+        LearnJsonTrailAffordances.toCommandsJson(
           JSON.stringify(actual.learnedTrails.affordances),
-          JSON.stringify(actual.jsonTrail)
+          JSON.stringify(actual.jsonTrail),
+          randomIds,
+          toOption(i)
         )
       );
 

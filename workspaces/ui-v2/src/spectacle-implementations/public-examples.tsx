@@ -21,7 +21,7 @@ import {
   AppConfigurationStore,
   OpticAppConfig,
 } from '../optic-components/hooks/config/AppConfiguration';
-import { AnalyticsStore } from '../analytics/hook';
+import { AnalyticsStore } from '../analytics';
 
 const appConfig: OpticAppConfig = {
   featureFlags: {},

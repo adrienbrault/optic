@@ -20,9 +20,9 @@ import {
   IInteractionPreviewTab,
   IPatchChoices,
 } from '../../../lib/Interfaces';
-import { IJsonTrail } from '../../../../../cli-shared/build/diffs/json-trail';
 import { useInteraction } from '../../../spectacle-implementations/interaction-loader';
 import { BuildSpecPatch } from './BuildSpecPatch';
+import { IJsonTrail } from '@useoptic/cli-shared/build/diffs/json-trail';
 
 type IDiffCardProps = {
   previewTabs: IInteractionPreviewTab[];
